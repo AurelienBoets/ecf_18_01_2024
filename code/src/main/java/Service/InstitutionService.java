@@ -5,6 +5,7 @@ import DaoImpl.InstitutionDao;
 import Model.Department;
 import Model.Institution;
 
+
 public class InstitutionService {
     private final DepartmentDao departmentDao=new DepartmentDao();
     private final InstitutionDao institutionDao=new InstitutionDao();
@@ -28,6 +29,17 @@ public class InstitutionService {
     }
 
     public Department getDepartment(long idDepartment){
-        return departmentDao.getById(idDepartment)
+        return departmentDao.getById(idDepartment);
+    }
+
+    public long countStudent(long idDepartment){
+        return departmentDao.countStudent(idDepartment);
+    }
+
+    public boolean deleteDepartment(long idDepartment){
+        if(departmentDao.getById(idDepartment)==null)
+            return false;
+        departmentDao.remove(idDepartment);
+        return true;
     }
 }

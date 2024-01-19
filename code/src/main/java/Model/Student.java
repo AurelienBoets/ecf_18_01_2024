@@ -19,7 +19,7 @@ public class Student {
     @JoinColumn(name = "classId")
     private Class classRoom;
 
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Note> notes;
 
     public Student() {

@@ -19,7 +19,7 @@ public class Class {
     @OneToMany(mappedBy = "class",cascade = CascadeType.ALL)
     private List<Schedule> schedules;
 
-    @OneToMany(mappedBy = "class",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "class",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Student> students;
 
     public Class(String name, String level, Teacher teacher) {
